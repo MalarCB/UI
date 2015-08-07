@@ -1,4 +1,4 @@
-module API
+module Api
   class ExperimentController < ApplicationController
     before_action :find_user, only: [:create]
 
@@ -19,6 +19,9 @@ module API
       @experiment = Experiment.all
     end
 
+    def test
+
+    end
     private
     def find_user
       if params[:token].present?
