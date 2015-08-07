@@ -309,29 +309,26 @@
       });
 
       // Utilities
-
       trigger = function (type) {
         self.trigger(type, frame.target);
       };
 
       triggerLast = function (type) {
         self.trigger(type, $(self.getElementByXPath(self.lastPath)));
-        $('body').focus()
       };
 
       // Event emulation
-      console.log(frame.type)
       switch (frame.type) {
         case "click":
-          //$('#' + frame.id).focus()
-          this.cursor.addClass("clicking");
-          this.showDisc('green');
+          //frame.target.focus()
+          this.showDisc('red');
           trigger("click");
+          $('#' + frame.id).focus();
           break;
 
         case "mousemove":
-          $('body').focusout();
           this.cursor.show();
+          this.showDisc('red');
           trigger("mouseover");
           if (isNewPath){
             triggerLast("mouseout");
@@ -340,18 +337,9 @@
 
         case "change":
           trigger("change");
-          this.cursor.addClass("clicking");
-          frame.target.focus()
-          //$('#' + frame.id).focus()
-          var i = frame.value.length;
+          $('#' + frame.id).focus();
           frame.target.val(frame.value);
-          while (i--) {
-            //frame.target.val( 'X' + frame.target.val());
-          }
-          $('#' + frame.id).retype();
-
           break;
-
       }
 
       // GC
