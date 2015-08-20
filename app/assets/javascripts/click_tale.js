@@ -1,4 +1,4 @@
-/*! Copyright 2006-2015 ClickTale Ltd. *//*
+/*
  ! function() {
   var z;
 
@@ -416,6 +416,7 @@ function WRDX(d) {
     return
   }
   var b = JSON.stringify(d);
+  console.log(b);
   var a = {
     a: "json",
     t: WRH()
@@ -1783,4 +1784,5 @@ function WRPublishEventForHandlers(h) {
     }
   }
 };
+
 */
