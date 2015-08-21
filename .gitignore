@@ -11,8 +11,16 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
-# Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
+/log/*.log
 /tmp
-.idea*
+/coverage
+
+/.idea
+
+.env
+.DS_Store
+
+dump.rdb
+/public/assets/
+/public/images/
+.rspec
