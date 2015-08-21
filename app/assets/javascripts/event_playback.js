@@ -135,13 +135,14 @@
      * @api private
      */
 
+
     packFrame: function (e) {
       return {
         x: e.pageX,
         y: e.pageY,
         type: e.type,
         target: this.getElementXPath(e.target),
-        value: e.type === "change" ? $(e.target).val() : null,
+        value: e.type === "change" ? this.decodeValue($(e.target).val(), e.target) : null,
         id: e.target.id
       };
     },
@@ -152,7 +153,23 @@
      * @return {string}
      * @api public
      */
-
+    //Decode value for input fields
+    decodeValue: function(e, target)
+    {
+      console.log(target.type)
+      if (target.type != undefined)
+      {
+        if (target.type == 'radio' || target.type == 'select-one' || target.type.search('select'))
+          return e
+        else
+        {
+          var a = [];
+          for (var i = 0; i < e.length; i++)
+            a += 'X';
+          return(a);
+        }
+      }
+    },
     getElementXPath: function (elm) {
       for (segs = []; elm && elm.nodeType === 1; elm = elm.parentNode) {
         if (elm.hasAttribute("id")) {
@@ -188,6 +205,7 @@
               e.pageX = frame.x, e.pageY = frame.y;
             }
             frame = self.packFrame(e);
+            console.log(JSON.stringify(frame))
             self.frames.push(frame);
             Cookies.set('analytics-js', self.encodeJSON({frames: self.frames}))
           }
