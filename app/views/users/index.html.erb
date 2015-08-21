@@ -1,0 +1,41 @@
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone number</th>
+      <th>Address 1</th>
+      <th>Address 2</th>
+      <th>Address 3</th>
+      <th>Country</th>
+      <th>Token</th>
+      <th>Ip address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @experiments.each do |experiment| %>
+      <tr>
+        <td><%= experiment.email %></td>
+        <td><%= experiment.first_name %></td>
+        <td><%= experiment.last_name %></td>
+        <td><%= experiment.phone_number %></td>
+        <td><%= experiment.address1 %></td>
+        <td><%= experiment.address2 %></td>
+        <td><%= experiment.address3 %></td>
+        <td><%= experiment.country %></td>
+        <td><%= link_to 'Show', experiment %></td>
+        <td><%= link_to 'Edit', edit_user_path(experiment) %></td>
+        <td><%= link_to 'Destroy', experiment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Experiment', new_user_path %>

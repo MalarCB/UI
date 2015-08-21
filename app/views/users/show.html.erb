@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @experiment.email %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @experiment.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @experiment.last_name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @experiment.phone_number %>
+</p>
+
+<p>
+  <strong>Address 1:</strong>
+  <%= @experiment.address1 %>
+</p>
+
+<p>
+  <strong>Address 2:</strong>
+  <%= @experiment.address2 %>
+</p>
+
+<p>
+  <strong>Address 3:</strong>
+  <%= @experiment.address3 %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @experiment.country %>
+</p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @experiment.token %>
+</p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @experiment.ip_address %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@experiment) %> |
+<%= link_to 'Back', users_path %>

@@ -19,9 +19,6 @@ module Api
       @experiment = Experiment.all
     end
 
-    def test
-
-    end
     private
     def find_user
       if params[:token].present?
